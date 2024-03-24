@@ -1,0 +1,86 @@
+
+        <html>
+
+        <head>
+            <title>Student Management Application</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        </head>
+
+        <body>
+
+            <header>
+                <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #87ceeb">
+                    <div>
+                        <a href="" class="navbar-brand"> Student
+     Management App </a>
+                    </div>
+
+                    <ul class="navbar-nav">
+<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Student</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <br>
+
+            <div class="row">
+                <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
+
+                <div class="container">
+                    <h3 class="text-center">List of Students</h3>
+                    <hr>
+                    <div class="container text-left">
+
+                        <a href=" " class="btn btn-success">Add
+     New Students</a>
+                    </div>
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Registration Number</th>
+                                <th>First Name</th>
+                                <th>Second Name</th>
+                                <th>Student Email</th>
+                                <th>Sex</th>
+                                <th>Province</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--   for (Todo todo: todos) {  -->
+                            <c:forEach var="Student" items="${listofStudent}">
+
+                                <tr>
+                                    <td>
+                                        <c:out value="${Student.registrationNumber}" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${Student.firstName}" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${Student.secondName}" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${Student.studentEmail}" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${Student.sex}" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${Student.province}" />
+                                    </td>
+                                    
+<td><a href="edit?id=<c:out value='${user.id}' />">Edit</a>
+    &nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="delete?id=<c:out value='${user.id}' />">Delete</a></td>
+                                </tr>
+                            </c:forEach>
+                            <!-- } -->
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </body>
+
+        </html>
